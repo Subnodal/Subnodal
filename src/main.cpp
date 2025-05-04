@@ -10,6 +10,7 @@
 
 AsyncWebServer server(80);
 WireGuard wg;
+struct tm currentTime;
 
 IPAddress localIp(10, 200, 200, 2);
 
@@ -52,9 +53,18 @@ void setup() {
 
     Serial.printf("Wi-Fi connected successfully - IP address: %s\r\n", WiFi.localIP().toString());
 
-    configTime(9 * 60 * 60, 0, "0.uk.pool.ntp.org", "1.uk.pool.ntp.org", "2.uk.pool.ntp.org");
+    configTime(0, 0, "pool.ntp.org");  
 
     Serial.println("Configured NTP servers");
+
+    Serial.println("Syncing time...");
+
+    while (time(nullptr) <= 86400000) {
+        delay(1000);
+    }
+
+    getLocalTime(&currentTime);
+    Serial.println(&currentTime, "Time synced: %A %d %B %Y %H:%M:%S");
 
     #ifdef ENDPOINT_ADDRESS
         if (wg.begin(
@@ -77,4 +87,8 @@ void setup() {
     Serial.println("Server started");
 }
 
-void loop() {}
+void loop() {
+    delay(5000);
+
+    getLocalTime(&currentTime);
+}

@@ -1,0 +1,12 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+footer {
+    border-block-start: 2px solid black;
+}
+
+.grow {
+    flex-grow: 1;
+}
