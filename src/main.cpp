@@ -53,7 +53,7 @@ void setup() {
 
     Serial.printf("Wi-Fi connected successfully - IP address: %s\r\n", WiFi.localIP().toString());
 
-    configTime(0, 0, "pool.ntp.org");  
+    configTime(0, 0, "pool.ntp.org");
 
     Serial.println("Configured NTP servers");
 
