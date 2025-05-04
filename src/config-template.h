@@ -1,0 +1,8 @@
+#define WIFI_SSID ""
+#define WIFI_PASSWORD ""
+
+#define LOCAL_IP 10, 200, 200, 2
+#define CLIENT_PRIVATE_KEY ""
+#define ENDPOINT_ADDRESS ""
+#define ENDPOINT_PORT 51820
+#define ENDPOINT_PUBLIC_KEY ""
