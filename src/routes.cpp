@@ -10,4 +10,6 @@ void routes::init() {
             return emptyString;
         });
     });
+
+    server.serveStatic("/media", LittleFS, "/media");
 }

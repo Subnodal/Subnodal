@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf rootfs
 mkdir -p rootfs
 
 find rootsrc -type f | while read -r sourcePath; do
@@ -10,10 +11,9 @@ find rootsrc -type f | while read -r sourcePath; do
 
     echo "$sourcePath -> $destinationPath"
 
-    minify --html $sourcePath
-
     case ${sourcePath##*.} in
         html|css|js) minify $sourcePath > $destinationPath ;;
+        svg) svgo $sourcePath -o $destinationPath ;;
         *) cp $sourcePath $destinationPath ;;
     esac
 done

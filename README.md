@@ -5,7 +5,7 @@ The main repository for the Subnodal frontend and backend.
 First, install the required dependencies:
 
 ```bash
-npm i -g minify
+npm i -g minify svgo
 ```
 
 Then run the build script:
